@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+cart
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="cart-header">Your Shopping Cart</h1>
+
+    {% if items %}
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th class="font-medium">Product</th>
+                <th class="font-medium">Price</th>
+                <th class="font-medium">Quantity</th>
+                <th class="font-medium">Total</th>
+                <th class="font-medium">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr class="cart-item">
+                <td class="flex items-center">
+                    <img src="{{ item.image_url }}" alt="{{ item.product_name }}" class="mr-4">
+                    <span>{{ item.product_name }}</span>
+                </td>
+                <td>${{ item.product_price }}</td>
+                <td>
+                    <input type="number" value="{{ item.quantity }}" class="border p-1 w-16" min="1">
+                </td>
+                <td>${{ item.total_price }}</td>
+                <td>
+                    <span class="remove-btn">Remove</span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="cart-footer mt-8">
+        <p>Total: ${{ items | map(attribute='total_price') | sum }}</p>
+        <button class="bg-blue-500 text-white px-6 py-2 rounded mt-4">Proceed to Checkout</button>
+    </div>
+    {% else %}
+    <p class="text-center text-lg">Your cart is empty.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

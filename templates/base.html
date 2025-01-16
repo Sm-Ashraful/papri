@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="header">
+            <p class="">Customer Care Solution at Facebook: paprii.florist</p>
+            <div class="">
+                <ul class="header_ul">
+                    <li class="">My Account</li>
+                    <div class="line"></div>
+                    <li class="">
+                        <a href="view_cart/user123">cart</a>
+                    </li>
+                    <div class="line"></div>
+                    <li class="">checkout</li>
+
+                    <div class="social">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <div class="social-line"></div>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <nav class="">
+        <div class="nav_container">
+            <div class="img">
+                <img src="./static/assets/logo (1).png" alt="" class="" />
+            </div>
+
+            <ul class="">
+                <li class=""><a href="/">Home</a></li>
+                <li class=""><a href="/love-romance">Love & Romance</a></li>
+                <li class="">Gift Hamper</li>
+                <li class="">Occasions</li>
+                <li class="">Football themed gifts</li>
+                <li class="">Cakes & Others</li>
+                <li class="">Shop By</li>
+                <li class="">Corporate</li>
+                <li class="">About Us</li>
+                <li class=""></li>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}
+        <!-- Content will be injected here -->
+        {% endblock %}
+    </main>
+</body>
+
+</html>

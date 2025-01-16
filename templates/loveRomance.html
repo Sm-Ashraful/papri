@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}
+Love and Romance
+{% endblock %}
+
+{% block content %}
+<section class="love-hero-section"
+    style="background-image: url('{{ url_for('static', filename='assets/lr/lovebanner.jpg') }}')">
+    <div class="love-hero-content">
+        <h1>Love & Romance</h1>
+        <p>Surprise your loved one with flowers from your trusted online shop in Dhaka.</p>
+    </div>
+</section>
+
+<section class="love-section">
+    <div class="love-container">
+        <div class="heaer-gap">
+        </div>
+        <div class="container-header">
+            <h1 class="heading-text">Love & Romance</h1>
+            <h3 class="subtext">Check out the Exotic Fresh Flower Bouquets to add more freshness to your Love & Romance.
+            </h3>
+        </div>
+        <div class="card-container">
+            <div class="card-wrapper">
+                {% for product in products %}
+                <div class="card">
+                    <img src="{{ url_for('static', filename=product.images[0].image_url) }}" alt="love image">
+
+                    <div class="details">
+                        <h4 class="name">{{ product.name }}</h4>
+                        <h4 class="price">
+                            <span class="price-symbol">৳&nbsp;</span>{{ product.price }}TK
+                        </h4>
+                    </div>
+                    <div class="card-button">
+                        <a class="btn-card" id="add-to-cart-button" data-product-id="{{ product._id }}"
+                            data-user-id="user123">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                    <path
+                                        d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                                </svg>
+                            </div>
+                            <span>Add to Cart</span>
+                        </a>
+
+                        <a class="btn-card">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                    <path
+                                        d="M64 80c-8.8 0-16 7.2-16 16l0 320c0 8.8 7.2 16 16 16l448 0c8.8 0 16-7.2 16-16l0-320c0-8.8-7.2-16-16-16L64 80zM0 96C0 60.7 28.7 32 64 32l448 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zm96 64a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm104 0c0-13.3 10.7-24 24-24l224 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-224 0c-13.3 0-24-10.7-24-24zm0 96c0-13.3 10.7-24 24-24l224 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-224 0c-13.3 0-24-10.7-24-24zm0 96c0-13.3 10.7-24 24-24l224 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-224 0c-13.3 0-24-10.7-24-24zm-72-64a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM96 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
+                                </svg>
+                            </div>
+                            <span>
+                                Show Details
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <section class="contest-announcement">
+            <div class="container">
+                <h1 class="headline">Contest to Win a Diamond Pendant is Closed</h1>
+                <p class="subheadline">Winner will be selected and announced next month.</p>
+
+                <div class="winner-selection">
+                    <h2 class="section-title">Winner Selection Process</h2>
+                    <ul class="process-list">
+                        <li>The customer who ordered between <strong>27 Jan 2021 to 12 Feb 2021</strong> and wrote the
+                            most
+                            beautiful message will win.</li>
+                        <li>In case of same scored participants, the one who placed the order first will be selected.
+                        </li>
+                        <li>The winner will be contacted by <strong>paprii.com’s team</strong> to finalize the gift
+                            handover
+                            date & venue.</li>
+                    </ul>
+                </div>
+
+                <div class="pendant-specification">
+                    <h2 class="section-title">Specification of the Diamond Pendant</h2>
+                    <ul class="spec-list">
+                        <li><strong>Diamond Pendant from Al-Hassan Diamond Gallery</strong> (address: 68 Richmond
+                            Concord,
+                            Gulshan Ave., Gulshan 1)</li>
+                        <li><a href="https://www.facebook.com/alhassan.diamond" target="_blank">Click Here to visit its
+                                Facebook
+                                page</a></li>
+                        <li><strong>Weight:</strong> 0.46gm (Gross), 0.02 ct (Diamond)</li>
+                        <li><strong>Diamond Cut:</strong> Natural Diamond with ‘Round‘ ‘Brilliant‘ cut, SI1 Clarity, I-J
+                            color,
+                            18k gold</li>
+                        <li><strong>Pendant will be provided with IGI Certification</strong></li>
+                        <li><strong>Picture:</strong> Only Diamond Pendant will be provided. The chain is not part of
+                            the gift.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-info">
+                    <p>If you have any query, inbox us on our <a href="https://www.facebook.com/paprii"
+                            target="_blank">Facebook
+                            page</a>.</p>
+                </div>
+
+                <div class="video-link">
+                    <p><a href="https://www.youtube.com/watch?v=your_video_id" target="_blank">CLICK HERE to view the
+                            video on
+                            the winner of 2019 contest.</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+<script>
+    // Select all Add to Cart buttons by class name
+    const addToCartButtons = document.querySelectorAll(".btn-card");
+
+    // Loop through each button and add the event listener
+    addToCartButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            // Get product ID and user ID from the button's data attributes
+            const productId = this.getAttribute("data-product-id");
+            console.log("Data product id: ", productId);
+            const userId = this.getAttribute("data-user-id");
+            const quantity = 1; // Set default quantity to 1
+
+            // Send POST request to the Flask backend
+            fetch("/add_to_cart", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: `user_id=${userId}&product_id=${productId}&quantity=${quantity}`,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response
+                    if (data.message) {
+                        alert(data.message); // Show success message
+                    } else if (data.error) {
+                        alert(data.error); // Show error message
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        });
+    });
+</script>
+
+
+{% endblock %}
