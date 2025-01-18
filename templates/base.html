@@ -15,13 +15,16 @@
             <p class="">Customer Care Solution at Facebook: paprii.florist</p>
             <div class="">
                 <ul class="header_ul">
-                    <li class="">My Account</li>
-                    <div class="line"></div>
                     <li class="">
-                        <a href="view_cart/user123">cart</a>
+                        <a href="/my_account/user123">My Account</a>
+
                     </li>
                     <div class="line"></div>
-                    <li class="">checkout</li>
+                    <li class="">
+                        <a href="/view_cart/user123">cart</a>
+                    </li>
+                    <div class="line"></div>
+                    <li class=""><a href="/checkout/user123">checkout</a></li>
 
                     <div class="social">
                         <i class="fa-brands fa-facebook-f"></i>
@@ -34,14 +37,16 @@
     </header>
     <nav class="">
         <div class="nav_container">
-            <div class="img">
-                <img src="./static/assets/logo (1).png" alt="" class="" />
-            </div>
+            <a href="/" class="img">
+                <img src="{{ url_for('static', filename='assets/logo (1).png') }}" alt="" class="" />
+            </a>
 
             <ul class="">
                 <li class=""><a href="/">Home</a></li>
                 <li class=""><a href="/love-romance">Love & Romance</a></li>
-                <li class="">Gift Hamper</li>
+                <li class="">
+                    <a href="/gift">Gift Hamper</a>
+                </li>
 
                 <li class="">Corporate</li>
                 <li class="">About Us</li>

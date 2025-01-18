@@ -8,7 +8,7 @@ Love and Romance
 <section class="love-hero-section"
     style="background-image: url('{{ url_for('static', filename='assets/lr/lovebanner.jpg') }}')">
     <div class="love-hero-content">
-        <h1>Love & Romance</h1>
+        <h1>Gift Products</h1>
         <p>Surprise your loved one with flowers from your trusted online shop in Dhaka.</p>
     </div>
 </section>
@@ -18,13 +18,13 @@ Love and Romance
         <div class="heaer-gap">
         </div>
         <div class="container-header">
-            <h1 class="heading-text">Love & Romance</h1>
+            <h1 class="heading-text">Birthday Gift</h1>
             <h3 class="subtext">Check out the Exotic Fresh Flower Bouquets to add more freshness to your Love & Romance.
             </h3>
         </div>
         <div class="card-container">
             <div class="love-wrapper">
-                {% for product in products %}
+                {% for product in giftProducts %}
                 <div class="card">
                     <img src="{{ url_for('static', filename=product.images[0].image_url) }}" alt="love image">
 

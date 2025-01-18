@@ -10,7 +10,7 @@ My Account
 
     <!-- Check if orders exist -->
     {% if not orders %}
-    <p class="no-orders-message">{{ message }}</p>
+    <p class="no-orders-message">You haven't place any order!. Please order first</p>
     {% else %}
     <h2>Your Orders</h2>
     <ul class="orders-list">
@@ -40,4 +40,11 @@ My Account
     </ul>
     {% endif %}
 </div>
+
+<footer class="footer">
+    <div class="footer_container container">
+        <p class="">All Right Reserved.</p>
+        <p class="">© Copyright - Paprii.com</p>
+    </div>
+</footer>
 {% endblock %}
