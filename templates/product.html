@@ -8,9 +8,9 @@ Product Description
 <div class=" product-page-container">
     <div class="container">
         <div class="page-details">
-            <div class="prduct-img">
-                <img src="{{ url_for('static', filename=product.images[0].image_url) }}" alt="{{ product.name }} class="
-                    card-img">
+            <div class="product-img">
+                <img src="{{ url_for('static', filename=product.images[0].image_url) }}" alt="{{ product.name }}"
+                    class="card-img">
             </div>
             <div>
                 <h1>{{ product.name }}</h1>
@@ -20,4 +20,11 @@ Product Description
         </div>
     </div>
 </div>
+
+<footer class="footer">
+    <div class="footer_container container">
+        <p class="">All Right Reserved.</p>
+        <p class="">© Copyright - Paprii.com</p>
+    </div>
+</footer>
 {% endblock %}

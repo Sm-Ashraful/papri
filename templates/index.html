@@ -63,7 +63,7 @@ Home - My Website
         </div>
         {% endfor %}
       </div>
-      <button class="contact_button">Shop Love and Romance</button>
+      <button class="contact_button" onclick="window.location.href='/love-romance';">Shop Love and Romance</button>
     </div>
 </section>
 <section class="birthday-section">
@@ -114,7 +114,7 @@ Home - My Website
         </div>
         {% endfor %}
       </div>
-      <button class="contact_button">Shop New Bouquets</button>
+      <button class="contact_button" onclick="window.location.href='/gift';">Shop New Bouquets</button>
     </div>
 </section>
 <section class="service_about">
@@ -292,6 +292,42 @@ Home - My Website
   }
 
   setInterval(nextSlide, 5000); // Change card every 5 seconds
+</script>
+<script>
+  // Select all Add to Cart buttons by class name
+  const addToCartButtons = document.querySelectorAll(".btn-card");
+
+  // Loop through each button and add the event listener
+  addToCartButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      // Get product ID and user ID from the button's data attributes
+      const productId = this.getAttribute("data-product-id");
+      console.log("Data product id: ", productId);
+      const userId = this.getAttribute("data-user-id");
+      const quantity = 1; // Set default quantity to 1
+
+      // Send POST request to the Flask backend
+      fetch("/add_to_cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `user_id=${userId}&product_id=${productId}&quantity=${quantity}`,
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response
+          if (data.message) {
+            alert(data.message); // Show success message
+          } else if (data.error) {
+            alert(data.error); // Show error message
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+        });
+    });
+  });
 </script>
 
 {% endblock %}

@@ -31,6 +31,12 @@ def product():
     return render_template("loveRomance.html", products=products)
 
 
+@app.route("/gift")
+def gift():
+    giftProducts = products_collection.find({"category": "gift"})
+    return render_template("gift.html", giftProducts=giftProducts)
+
+
 @app.route("/add_to_cart", methods=["POST"])
 def add_to_cart():
     user_id = request.form.get("user_id")
@@ -88,7 +94,7 @@ def add_to_cart():
 def view_cart(user_id):
     cart = db.carts.find_one({"user_id": user_id})
     if not cart:
-        return jsonify({"message": "Cart is empty"}), 404
+        return render_template("cart.html", items=[], empty_cart=True)
 
     items = []
     for item in cart["items"]:
@@ -128,7 +134,7 @@ def product_page(product_id):
 def checkout(user_id):
     cart = db.carts.find_one({"user_id": user_id})
     if not cart:
-        return jsonify({"message": "Cart is empty"}), 404
+        return render_template("cart.html", items=[], empty_cart=True)
 
     items = []
     total_price = 0

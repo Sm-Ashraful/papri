@@ -31,7 +31,7 @@ Checkout
 
     <!-- Right: Cart Items -->
     <div class="cart-container">
-        <h2>Your Cart</h2>
+        <h2>Your Checkout Details</h2>
         <ul class="cart-items">
             {% for item in items %}
             <li class="cart-item">
@@ -49,5 +49,10 @@ Checkout
         <p class="total">Grand Total: ${{ grand_total }}</p>
     </div>
 </div>
-
+<footer class="footer">
+    <div class="footer_container container">
+        <p class="">All Right Reserved.</p>
+        <p class="">© Copyright - Paprii.com</p>
+    </div>
+</footer>
 {% endblock %}
