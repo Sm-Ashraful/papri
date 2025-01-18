@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+Checkout
+{% endblock %}
+
+{% block content %}
+
+<div class="container checkout-container">
+    <!-- Left: Delivery Details -->
+    <div class="form-container">
+        <h2>Delivery Details</h2>
+        <form method="POST" action="/checkout/user123">
+            <label for="customer_name">Customer Name</label>
+            <input type="text" id="customer_name" name="customer_name" required>
+
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required>
+
+            <input type="hidden" name="shipping_charge" value="100">
+
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <!-- Right: Cart Items -->
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+        <ul class="cart-items">
+            {% for item in items %}
+            <li class="cart-item">
+                <img src="{{ url_for('static', filename=item.image_url) }}" alt="{{ item.product_name }}">
+                <div>
+                    <p>{{ item.product_name }}</p>
+                    <p>Price: ${{ item.product_price }}</p>
+                    <p>Quantity: {{ item.quantity }}</p>
+                    <p>Total: ${{ item.total_price }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <p class="total">Shipping: $100</p>
+        <p class="total">Grand Total: ${{ grand_total }}</p>
+    </div>
+</div>
+
+{% endblock %}

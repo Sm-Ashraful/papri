@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+My Account
+{% endblock %}
+
+{% block content %}
+<div class="container my-account-container">
+    <h1>My Account</h1>
+
+    <!-- Check if orders exist -->
+    {% if not orders %}
+    <p class="no-orders-message">{{ message }}</p>
+    {% else %}
+    <h2>Your Orders</h2>
+    <ul class="orders-list">
+        {% for order in orders %}
+        <li>
+            <h3>Order ID: {{ order.order_id }}</h3>
+            <p>Order Date: {{ order.order_date }}</p>
+            <p>Grand Total: ${{ order.grand_total }}</p>
+            <h4>Items:</h4>
+            <ul>
+                {% for item in order['items'] %}
+                <li>
+                    <p>Product: {{ item.product_name }}</p>
+                    <p>Price: ${{ item.product_price }}</p>
+                    <p>Quantity: {{ item.quantity }}</p>
+                    <p>Total: ${{ item.total_price }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+            <h4>Address:</h4>
+            <p>{{ order.address.customer_name }}</p>
+            <p>{{ order.address.phone }}</p>
+            <p>{{ order.address.address }}</p>
+            <p>{{ order.address.city }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock %}
